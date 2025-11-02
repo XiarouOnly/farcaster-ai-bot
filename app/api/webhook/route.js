@@ -3,9 +3,11 @@ export async function POST(request) {
     const body = await request.json();
     const { text, author, hash } = body.data;
     
-    // Cek kalo mention bot lo
-    if (text && text.includes('@aibot')) {
-      const question = text.replace('@aibot', '').trim();
+    // // Ganti dari @aibot jadi username baru lo
+if (text && text.includes('@aihelper_id')) {
+  const question = text.replace('@aihelper_id', '').trim();
+  // ... rest of code
+}
       
       // Pake Groq AI
       const aiResponse = await generateAIResponse(question, author.username);
